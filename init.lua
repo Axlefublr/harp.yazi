@@ -6,7 +6,7 @@ local function notify(content)
 	ya.notify({ title = 'Harp', content = tostring(content), timeout = 2.5, level = 'info' })
 end
 
-local INPUTBOX_WIDTH = 16
+local INPUTBOX_WIDTH = 32
 
 local INPUTBOX_POSITION = {
 	'top-center',
