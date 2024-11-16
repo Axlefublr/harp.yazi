@@ -1,6 +1,6 @@
 Implementation of "cwd harps" using [harp](https://github.com/Axlefublr/harp), like the cwd harps from [my helix fork](https://github.com/Axlefublr/helix).
 
-`.` relativity is supported.
+`.` relativity for the get action is now supported.
 
 Requires you to have the `harp` binary installed and in `$PATH`.
 
