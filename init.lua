@@ -13,13 +13,20 @@ local INPUTBOX_POSITION = {
 	w = INPUTBOX_WIDTH,
 }
 
+local get_cwd = ya.sync(function() return cx.active.current.cwd end)
+
 local function harp_get()
 	local input, event = ya.input({
 		title = 'Get cwd harp',
 		position = INPUTBOX_POSITION,
 	})
 	if event ~= 1 or not input then return end
-	local output, _ = Command('harp'):args({ 'get', 'harp_dirs', input, '--path' }):output()
+	local section_name = 'harp_dirs'
+	if input:sub(0, 1) == '.' then
+		input = input:sub(2)
+		section_name = section_name .. '_' .. tostring(get_cwd())
+	end
+	local output, _ = Command('harp'):args({ 'get', section_name, input, '--path' }):output()
 	if not output or not output.status.success then
 		error('register `' .. input .. "` isn't set")
 		return
@@ -27,8 +34,6 @@ local function harp_get()
 	local path = output.stdout
 	ya.manager_emit('cd', { path })
 end
-
-local get_cwd = ya.sync(function() return cx.active.current.cwd end)
 
 local function harp_set()
 	local input, event = ya.input({

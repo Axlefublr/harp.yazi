@@ -1,4 +1,6 @@
-Implementation of "cwd harps" using [harp](https://github.com/Axlefublr/harp), like the cwd harps from [my helix fork](https://github.com/Axlefublr/helix) or [harp-nvim](https://github.com/Axlefublr/harp-nvim).
+Implementation of "cwd harps" using [harp](https://github.com/Axlefublr/harp), like the cwd harps from [my helix fork](https://github.com/Axlefublr/helix).
+
+`.` relativity is supported.
 
 Requires you to have the `harp` binary installed and in `$PATH`.
 
