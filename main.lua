@@ -47,11 +47,11 @@ local function harp_set()
 end
 
 return {
-	entry = function(_, args)
-		if not args or not args[1] then return end
-		if args[1] == 'get' then
+	entry = function(_, job)
+		if not job.args or not job.args[1] then return end
+		if job.args[1] == 'get' then
 			harp_get()
-		elseif args[1] == 'set' then
+		elseif job.args[1] == 'set' then
 			harp_set()
 		end
 	end,
